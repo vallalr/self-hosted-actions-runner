@@ -39,6 +39,19 @@ jobs:
             echo "::set-output name=should_build::false"
           fi
 
+      - name: Commit and push if necessary
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add .runner_version
+          if git diff --quiet HEAD; then
+            echo "No changes to commit"
+          else
+            git commit -m "Update runner version"
+            git push
+          fi
+        if: steps.compare_versions.outputs.should_build == 'true'
+
       - name: Build Docker image
         if: steps.compare_versions.outputs.should_build == 'true'
         run: |
