@@ -1,0 +1,17 @@
+version: '3.8'
+services:
+  github-runner:
+    build:
+      context: .
+      args:
+        - RUNNER_VERSION=${RUNNER_VERSION}
+    environment:
+      - ORGANIZATION=${ORGANIZATION}
+      - ACCESS_TOKEN=${ACCESS_TOKEN}
+      - RUNNER_NAME=${RUNNER_NAME}
+      - RUNNER_WORKDIR=${RUNNER_WORKDIR}
+      - LABELS=${LABELS}
+      - RUNNER_GROUP=${RUNNER_GROUP}
+      - GITHUB_HOST=${GITHUB_HOST}
+    volumes:
+      - ./runner:/gh-runner

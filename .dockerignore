@@ -1,0 +1,25 @@
+# Git and CI/CD
+.git/
+.gitignore
+.github/
+.dockerignore
+Dockerfile
+*CI.yml
+
+# System files
+.DS_Store
+Thumbs.db
+
+# Editor directories and files
+.vscode/
+.idea/
+*.sublime-workspace
+
+# Ignore temporary files
+*.tar.gz
+*.pid
+*.log
+
+# Ignore runner configuration
+.env
+_token

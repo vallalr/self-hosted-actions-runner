@@ -1,0 +1,11 @@
+# Temporary files
+*.tar.gz
+*.pid
+*.log
+
+# Runner configuration
+.env
+_token
+
+# Ignore everything in the _work directory
+_work/
